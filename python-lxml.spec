@@ -2,7 +2,7 @@
 
 Name:           python-lxml
 Version:        2.2.3
-Release:        1.1%{?dist}
+Release:        1.1%{?dist}.goose.1
 Summary:        ElementTree-like Python bindings for libxml2 and libxslt
 
 Group:          Development/Libraries
@@ -13,6 +13,7 @@ Source0:        http://cheeseshop.python.org/packages/source/l/lxml/lxml-%{versi
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  libxslt-devel
+BuildRequires:  python-devel
 
 %if 0%{?fedora} >= 8 || 0%{?rhel} >= 6
 BuildRequires: python-setuptools-devel
@@ -49,6 +50,10 @@ rm -rf %{buildroot}
 %{python_sitearch}/*
 
 %changelog
+
+* Wed Dec 14 2011 Clint Savage <clint@gooseproject.org> - 2.2.3-1.1.goose.1
+- Added build requirement for python-devel, koji will not build properly without it
+
 * Fri Nov 13 2009 Dennis Gregorovic <dgregor@redhat.com> - 2.2.3-1.1
 - Fix conditional for RHEL
 
